@@ -59,12 +59,40 @@ class Suedfrucht : public Obst
 	// zusätzliche Attribute - Spezialisierung
 public:
 	string herkunftsland;
-
-
 };
 
 
 
+class Vater
+{
+public:
+	string nachname;
+	string augenfarbe;
+};
+
+
+class Kind : public Vater
+{
+public:
+	//zusätzliche Attribute
+	string vorname;
+	string Haarfarbe;
+};
+
+
+// Ober oder Basisklasse
+class Landfahrzeug
+{
+public:
+	void fahren() { cout << "Fahrzeug wird bewegt" << endl; }
+};
+
+// Unter oder abgeleitete Klasse
+class Auto : public Landfahrzeug
+{
+public:
+	void tanken() { cout << "Fahrzeug wird getankt" << endl; }
+};
 
 
 //--------------------------------------------------------------------------//
@@ -74,6 +102,7 @@ int main()
 {
 	cout  << "Programm zu Vererbung"  << endl << endl;
 
+	//--------------------------------------------------------------------------//
 
 	Punkt punkt1;
 
@@ -83,14 +112,14 @@ int main()
 	cout << "punkt1.x: " << punkt1.x  << "\tpunkt1.y: " << punkt1.y << endl;
 
 
-
 	Punkt3D punkt3d1;
 
 	cout << punkt3d1.x << endl;
 	cout << punkt3d1.y << endl;
 	cout << punkt3d1.z << endl;
 
-
+	//--------------------------------------------------------------------------//
+	
 	// ein Objekt der Basisklasse Obst erzeugen
 	Obst apfel;
 	apfel.gewicht = 0.3;
@@ -104,10 +133,36 @@ int main()
 	banana.preis = 1.0;
 	banana.herkunftsland = "Peru";
 
+	//--------------------------------------------------------------------------//
+
+	Vater heinz;
+
+	heinz.nachname = "Mueller";
+	heinz.augenfarbe = "gruen";
 
 
+	Kind lisa;
+
+	lisa.nachname = "Mueller";
+	lisa.augenfarbe = "gruen";
+
+	lisa.vorname = "Lisa";
+	lisa.Haarfarbe = "blond";
+
+	//--------------------------------------------------------------------------//
 
 
+	Landfahrzeug fahrrad;
+
+	fahrrad.fahren();
+
+
+	Auto clio;
+
+	clio.fahren();
+	clio.tanken();
+
+	//--------------------------------------------------------------------------//
 
 	system("pause");
 	return 0;
